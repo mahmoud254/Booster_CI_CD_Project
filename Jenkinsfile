@@ -18,8 +18,9 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId:"DockerHub",
                                 usernameVariable:"USERNAME",passwordVariable:"PASSWORD")]){
-                sh 'docker login --username $USERNAME --password $PASSWORD'
-                sh 'docker push digitalphoenixx/boostercicd:latest'
+                    sh 'docker login --username $USERNAME --password $PASSWORD'
+                    sh 'docker push digitalphoenixx/boostercicd:latest'
+                }
             }
         }
         stage('Deploy') {
