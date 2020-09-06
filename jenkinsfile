@@ -4,6 +4,7 @@ pipeline{
           stage('Build Image'){
             steps{
                 sh 'docker build -f Dockerfile  . -t elabbassalah56/booster_ci_cd_project:v1.0'
+                
             }
          }
           stage('Push Image'){
@@ -18,7 +19,7 @@ pipeline{
          }  
           stage('Deploy'){
             steps{
-                sh 'docker run -d --name Booster_CI_CD_Project_DEV -p 8000:8000 -v ~/django-mount:/django-mount elabbassalah56/booster_ci_cd_project:v1.0  '
+                sh 'docker run -dit --name Booster_CI_CD_Project_DEV -p 8000:8000  elabbassalah56/booster_ci_cd_project:v1.0  '
             }
           }
         }
