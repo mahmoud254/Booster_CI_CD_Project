@@ -18,7 +18,7 @@ pipeline{
          }  
           stage('Deploy'){
             steps{
-                sh 'docker run -d --name Booster_CI_CD_Project -p 8000:8000 -v ~/django-mount:/django-mount elabbassalah56/booster_ci_cd_project:v1.0  '
+                sh 'docker run -d --name Booster_CI_CD_Project -p 8000:8000  elabbassalah56/booster_ci_cd_project:v1.0  '
             }
           }
         }
