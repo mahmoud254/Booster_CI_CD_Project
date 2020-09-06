@@ -7,7 +7,7 @@ pipeline {
         stage('Preparation') {
             steps {
                 // Repo is automatically  checked out
-                sh 'docker stop BoosterCICD'
+                sh 'docker stop BoosterCICD || true'
             }
         }
         stage('Build Image') {
