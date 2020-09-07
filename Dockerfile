@@ -11,9 +11,9 @@ ADD . /simpleApp
 WORKDIR /simpleApp
 COPY  .  .
 # check pip3
-RUN  pip3 install -r  /Booster_CI_CD_Project/requirements \ 
-     && python3 /Booster_CI_CD_Project/manage.py makemigrations\
-     &&  python3 /Booster_CI_CD_Project/manage.py migrate
+RUN  pip3 install -r  requirements \ 
+     && python3 manage.py makemigrations\
+     &&  python3 manage.py migrate
      
 EXPOSE 8000
 
