@@ -8,7 +8,7 @@ RUN apt-get update  -qq
 RUN apt-get -y install python3.6 \
      && apt -y install python3-pip \
      && apt-get install python-is-python3
-COPY .  /Booster_CI_CD_Project/
+COPY .  .
 # check pip3
 RUN  pip3 install -r  /Booster_CI_CD_Project/requirements \ 
      && python3 /Booster_CI_CD_Project/manage.py makemigrations\
