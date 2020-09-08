@@ -18,7 +18,11 @@ pipeline{
          }  
           stage('Deploy'){
             steps{
+<<<<<<< HEAD
                 sh 'docker run -d  -p 9080:8000  elabbassalah56/booster_ci_cd_project:v1.0'
+=======
+                sh 'docker run -d  -p 8081:8000  elabbassalah56/booster_ci_cd_project:v1.0'
+>>>>>>> 996e29921865c409dc53be91bb2d0a972e285e18
             }
           }
         }
