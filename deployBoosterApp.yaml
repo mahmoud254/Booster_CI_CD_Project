@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: booster
+  labels:
+    name: booster
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+  namespace: booster
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: my-app
+  template:
+    metadata:
+      labels:
+        name: my-app
+    spec:
+      containers:
+      - name: my-app
+        image: nathaneid/node-app:v1
+        ports:
+        - containerPort: 3000
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app
+  namespace: booster
+spec:
+  type: LoadBalancer
+  selector:
+    name: my-app
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+#      nodePort: 30080
