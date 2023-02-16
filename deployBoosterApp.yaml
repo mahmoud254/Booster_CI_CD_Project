@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: my-app
-        image: nathaneid/simple-app-django:latest
+        image: nathaneid/simple-app-django:final
         ports:
         - containerPort: 8000
 ---
