@@ -1,15 +1,19 @@
 pipeline {
-    agent any   
+    agent { label "slave" }
     stages {
         stage('CI') {
             steps {
-                git 'https://github.com/NathanEid/Booster_CI_CD_Project'
+                withCredentials([usernamePassword(credentialsId: 'Dockerhub', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                    sh "docker build . -t ${USER}/booster:v1"
+                    sh "docker login -u ${USER} -p ${PASS}"
+                    sh "docker push ${USER}/booster:v1"
+                }
             }
         }
         stage('CD') {
             steps {
                 sh "kubectl apply -f deployBoosterApp.yaml"
-            }
-        }    
+            }   
+        }
     }
 }
