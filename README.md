@@ -29,10 +29,7 @@ Create CI/CD pipeline using jenkinsfile to deploy simple django web app as a mic
 
 7- configure job in jenkins using multibranch pipeline type with the forked git repo url
 
-
-
-
-
+888
 
 
 # Steps to start django server
